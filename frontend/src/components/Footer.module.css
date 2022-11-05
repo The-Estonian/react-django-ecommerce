@@ -36,9 +36,12 @@
   @media (max-width: 750px) {
     .footer ul li{
         width: 30%;
-        margin: 0 2rem;
+        margin: 0 1rem;
     }
     .footer ul {
         padding: 0rem;
+    }
+    .footer ul li{
+        padding: 0.5rem;
     }
   }

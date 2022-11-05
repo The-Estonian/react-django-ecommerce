@@ -1,0 +1,49 @@
+.product {
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.product a img {
+  height: 20rem;
+  width: auto;
+}
+
+.product a {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid transparent;
+}
+
+.product a:hover{
+    border-bottom: 1px solid black;
+}
+
+.product a h4 {
+    padding: 0.5rem 0;
+}
+
+.product h3 {
+    padding: 1rem 0;
+}
+
+@media (max-width: 600px) {
+  .product a img {
+    height: 14rem;
+    width: auto;
+  }
+  .product {
+    margin: 0.2rem;
+    padding: 0.2rem;
+    padding-bottom: 0;
+    width: 20rem;
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+}
