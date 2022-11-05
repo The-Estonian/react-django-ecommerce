@@ -1,0 +1,19 @@
+body {
+  min-height: 80vh;
+  background-color: #ffffff;
+}
+
+/* 
+#c8d8e4
+#ffffff
+#f2f2f2
+#52ab98 
+*/
+
+
+.app-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

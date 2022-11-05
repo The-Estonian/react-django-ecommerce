@@ -1,0 +1,71 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    color: #f2f2f2
+}
+.form span {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+.form input {
+    height: 2.5rem;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.form input[type="submit"],
+.form button {
+    width: 6.5rem;
+    height: 3rem;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.form button a {
+    text-decoration: none;
+    color: #000
+}
+
+.auth-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form p {
+    margin-top: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .form span{
+        font-size: 1rem;
+    }
+    .form input{
+        height: 2rem;
+        font-size: 1rem;
+    }
+    .form input[type="submit"],
+    .form button{
+        height: 2rem;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+    }
+    .form {
+        margin-top: 7%;
+    }
+  }
