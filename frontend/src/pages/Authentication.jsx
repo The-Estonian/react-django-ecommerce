@@ -36,7 +36,7 @@ const Authentication = () => {
         </button>
         <input type='submit' value={loginOrRegister? 'Submit' : "Register"} />
       </div>
-      <p
+      <div
         onClick={() => {
           setLoginOrRegister(!loginOrRegister);
         }}
@@ -46,7 +46,7 @@ const Authentication = () => {
         ) : (
           <p>Don't have an account? Register here!</p>
         )}
-      </p>
+      </div>
     </form>
   );
 };

@@ -12,6 +12,7 @@ import RootContainer from './components/RootContainer';
 import Authentication from "./pages/Authentication"
 import Cart from "./pages/Cart"
 import Home from "./pages/Home"
+import ProductInfo from "./pages/ProductInfo"
 
 function App() {
   const router = createBrowserRouter(
@@ -20,6 +21,7 @@ function App() {
         <Route index element={<Home />}/>
         <Route path="/login" element={<Authentication />}/>
         <Route path="/cart" element={<Cart />}/>
+        <Route path="/product/:id" element={<ProductInfo/>}/>
         <Route path='*' element={<Navigate to='/' />} />
       </Route>
     )

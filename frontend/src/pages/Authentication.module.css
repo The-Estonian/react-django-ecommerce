@@ -9,7 +9,7 @@
 .form label {
     display: flex;
     flex-direction: column;
-    color: #f2f2f2
+    color: #000000
 }
 .form span {
     margin-left: 0.5rem;
@@ -22,6 +22,7 @@
     border: none;
     padding: 0 0.5rem;
     font-size: 1.2rem;
+    border: 1px solid black;
 }
 
 .form input[type="submit"],
