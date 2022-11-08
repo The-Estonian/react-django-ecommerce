@@ -28,7 +28,6 @@ def getProducts(request):
     
 @api_view(["GET"])
 def getProduct(request, pk):
-    print("asd",pk)
     product = None
     for i in products:
         if i["_id"] == pk:

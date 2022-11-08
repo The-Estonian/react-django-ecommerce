@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Rating from '../components/Rating';
-import products from '../products';
 import styles from './ProductInfo.module.css';
+import axios from 'axios';
 
 import { useParams, Link } from 'react-router-dom';
 
 const ProductInfo = () => {
+  const [product, setProduct] = useState([]);
   const { id } = useParams();
-  const product = products.find((p) => p._id === id);
+
+  useEffect(() => {
+    const datastream = async () => {
+      const response = await axios.get(`http://127.0.0.1:8000//api/products/${id}`);
+      setProduct(response.data)
+    }
+    datastream();
+  }, []);
   return (
     <div className={styles['product-info']}>
       <div className={styles['product-info-container']}>
