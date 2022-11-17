@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     "corsheaders",
     "rest_framework",
-    
+
     "base.apps.BaseConfig",
 ]
 
@@ -124,11 +124,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = "/images/"
+
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_ROOT = "static/images"
 
 CORS_ALLOW_ALL_ORIGINS = True
