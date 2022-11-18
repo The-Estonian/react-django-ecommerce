@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Product from '../components/Product';
 import styles from './Home.module.css';
-import axios from 'axios';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const datastream = async () => {
-      const response = await axios.get('http://127.0.0.1:8000//api/products/');
-      setProducts(response.data)
-    }
-    datastream();
-  }, []);
-
+  const data = useSelector((state) => state.productList.products);
+  
   return (
     <div className={styles.home}>
       <ul>
-        {products.map((item) => (
+        {data.map((item) => (
           <li key={item._id}>
             <Product product={item} />
           </li>

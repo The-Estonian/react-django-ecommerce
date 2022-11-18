@@ -1,52 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Rating from '../components/Rating';
 import styles from './ProductInfo.module.css';
-import axios from 'axios';
 
 import { useParams, Link } from 'react-router-dom';
 
 const ProductInfo = () => {
-  const [product, setProduct] = useState([]);
   const { id } = useParams();
-
-  useEffect(() => {
-    const datastream = async () => {
-      const response = await axios.get(`http://127.0.0.1:8000//api/products/${id}`);
-      setProduct(response.data)
-    }
-    datastream();
-  }, []);
+  const productList = useSelector((state) => state.productList.products);
+  const filterProduct = productList.find((listItem) => listItem._id === parseInt(id));
   return (
     <div className={styles['product-info']}>
       <div className={styles['product-info-container']}>
-        <img src={product.image} alt={product.name} />
+        <img src={filterProduct.image} alt={filterProduct.name} />
         <div className={styles['product-info-attr']}>
-          <h2>{product.name}</h2>
+          <h2>{filterProduct.name}</h2>
           <div className={styles['product-info-rating']}>
             <Rating
-              value={product.rating}
-              text={`${product.numReviews} reviews`}
+              value={filterProduct.rating}
+              text={`${filterProduct.numReviews} reviews`}
               color={'#f8e825'}
             />
           </div>
           <div className={styles['product-info-price']}>
-            Price: ${product.price}
+            Price: ${filterProduct.price}
           </div>
           <div className={styles['product-info-description']}>
-            Description: {product.description}
+            Description: {filterProduct.description}
           </div>
         </div>
         <div className={styles['product-info-stock']}>
           <div className={styles['product-info-stock-price']}>
             <p>Price:</p>
-            <p>${product.price}</p>
+            <p>${filterProduct.price}</p>
           </div>
           <div className={styles['product-info-stock-stock']}>
             <p>Stock: </p>
-            <p>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</p>
+            <p>{filterProduct.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</p>
           </div>
           <div className={styles['product-info-stock-add']}>
-            <button onClick={() => {console.log("Added to cart");}} disabled={product.countInStock === 0}>ADD TO CART</button>
+            <button
+              onClick={() => {
+                console.log('Added to cart');
+              }}
+              disabled={filterProduct.countInStock === 0}
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
       </div>

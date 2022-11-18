@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -6,22 +6,28 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProductList } from './store/productList-actions';
 
 import styles from './App.module.css';
 import RootContainer from './components/RootContainer';
-import Authentication from "./pages/Authentication"
-import Cart from "./pages/Cart"
-import Home from "./pages/Home"
-import ProductInfo from "./pages/ProductInfo"
+import Authentication from './pages/Authentication';
+import Cart from './pages/Cart';
+import Home from './pages/Home';
+import ProductInfo from './pages/ProductInfo';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProductList());
+  }, [dispatch]);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootContainer />}>
-        <Route index element={<Home />}/>
-        <Route path="/login" element={<Authentication />}/>
-        <Route path="/cart" element={<Cart />}/>
-        <Route path="/product/:id" element={<ProductInfo/>}/>
+        <Route index element={<Home />} />
+        <Route path='/login' element={<Authentication />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/product/:id' element={<ProductInfo />} />
         <Route path='*' element={<Navigate to='/' />} />
       </Route>
     )
